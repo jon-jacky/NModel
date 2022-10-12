@@ -16,6 +16,7 @@ them.  The NModel source code files are in another Github repository:
 https://github.com/juhan/NModel That repository does not include my
 web pages.
 
-The license in this repository is copied from the Codeplex site.
+The license.json in this repository is copied from the zipped archive
+from the Codeplex site.
 
 Oct 2022

@@ -1,0 +1,18 @@
+<div class="wikidoc"><h2>Creating <i>NModel.msi</i></h2>If you want to create a custom NModel installer from the sources, proceed as follows.<br />First ensure that you have <i>Sandcastle</i>, <i>Windows installer XML</i> (WiX), <i>NUnit-2.2.8-net-2.0</i> and <i>GLEE</i> (a graph layout engine that is used by the mpv utility) <br />installed, if not:
+<ul><li>Download Sandcastle from <a href="http://www.microsoft.com/downloads">http://www.microsoft.com/downloads</a></li>
+<li>Download WiX from <a href="http://wix.sourceforge.net">http://wix.sourceforge.net</a> (First install ProjectAggregator2 and then Wix)</li>
+<li>Download NUnit-2.2.8-net-2.0 from <a href="http://www.nunit.org">http://www.nunit.org</a>. (Part of the build process runs some unit tests.)</li>
+<li>Download <a href="http://research.microsoft.com/research/downloads/Details/f1303e46-965f-401a-87c3-34e1331d32c5/Detailslynn.aspx?0sr=a">GLEE</a>. </li></ul>
+Go to the <span class="codeInline">build</span> directory of the source tree and execute the command<br /><pre>
+&gt; msbuild nmodel.build.xml
+</pre><br />The above command produces the file <span class="codeInline">NModel.msi</span> with build and assembly version:<br /><pre>
+Version(1, 0, ((((today.Year - 2006) * 100) + today.Month) * 100) + today.Day, 0)
+</pre><br />If you want to provide a specific version <span class="codeInline">x.y.z.w</span> provide it with the parameter <span class="codeInline">CCNetLabel</span><br /><pre>
+&gt; msbuild nmodel.build.xml /p:CCNetLabel=x.y.z.w
+</pre><br />Executing this <span class="codeInline">msbuild</span> command will create a new version of the file <span class="codeInline">src\version.cs</span> that assigns the new assembly version string.  Be sure to copy this new file into your development environment, commit it to your version control system, etc.
+<h2>Building NModel libraries and utilities </h2>If you just want to build the libraries and the utilities, execute the following command in the <span class="codeInline">src</span> directory.<br />This does not require that you have installed <i>Sandcastle</i> or <i>WiX</i>, but it does require <i>GLEE</i> and it does require  <i>NUnit</i> (unless <br />the <span class="codeInline">*.Tests</span> unit test projects are excluded from the build).<br /><pre>
+&gt; msbuild NModel.sln
+</pre><br />This command builds and adds the libraries and the utilities to a top level <span class="codeInline">bin</span> directory of the source tree.<br /><br />This command may fail with error MSB4126 if the <span class="codeInline">PLATFORM</span> environment variable is defined on your system. <br />In that case (if you dare not undefine the variable) use these additional options:<br /><pre>
+&gt; msbuild NModel.sln /p:Platform=&quot;Any CPU&quot; /p:Configuration=Debug
+</pre>
+<h2>Creating <i>NModel.chm</i></h2>The documentation file <span class="codeInline">NModel.chm</span> can be built separately, without creating the full installer <span class="codeInline">NModel.msi</span> .<br />A prerequisite is that you have installed <i>Sandcastle</i> (see above).<br />You must first build the <span class="codeInline">NModel.dll</span> library as described above.<br />Then run the script <span class="codeInline">buildNModelDocs.bat</span> in the <span class="codeInline">build</span> directory of the source tree.<br />The script will produce the <span class="codeInline">NModel.chm</span> file in the same directory.</div><div class="ClearBoth"></div>

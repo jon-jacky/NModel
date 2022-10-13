@@ -1,0 +1,18 @@
+<div class="wikidoc"><h3>Offline Test Generator</h3><a href="#Usage">Usage</a> <a href="#Examples">Examples</a> <a href="#Options">Options</a><br /><br />Generates an offline test suite that achieves <i>link coverage</i> of the <i>finite state machine</i> (FSM) generated from a <a href="https://nmodel.codeplex.com/wikipage?title=Model%20Programs&referringTitle=Offline%20Test%20Generator">model program</a>.  The test suite can then be executed by the <a href="https://nmodel.codeplex.com/wikipage?title=Conformance%20Tester&referringTitle=Offline%20Test%20Generator">Conformance Tester</a>, <span class="codeInline">ct</span>.  For example, the command<br /><br /><pre>otg /r:PowerSwitch.dll PowerSwitch.Contract.Create
+</pre><br />generates the test suite <br /><br /><pre>
+TestSuite(TestCase(PowerOn(),PowerOff()))
+</pre><br />It is typical to compose a <i>scenario</i> expressed as an FSM with a <i>contract model program</i> in C# in order to limit the size of the generated FSM.<br /> <a name="Usage"></a>
+<h3>Usage</h3>
+<pre>
+otg [/reference:&lt;string&gt;]* [/mp:&lt;string&gt;]* [/file:&lt;string&gt;]* [/append[+|-]]* [/fsm:&lt;string&gt;]* &lt;model&gt;* @&lt;file&gt;
+</pre><br /><a name="Examples"></a>
+<h3>Examples</h3>
+<pre>
+otg @otg_args.txt
+otg /r:ClientServer.dll ClientServer.Factory.Create /fsm:Scenario.txt
+otg /r:ClientServer.dll /mp:ClientServer /fsm:Scenario.txt
+otg /r:ClientServer.dll ClientServer.Factory.Create /file:ContractTest.txt
+otg /r:ClientServer.dll /mp:ClientServer /file:ContractTest.txt
+</pre><br /><a name="Options"></a>
+<h3>Options</h3>
+<span class="codeInline">/?, /help</span><br />Displays usage information and exits.<br /><br /><span class="codeInline">[/reference:&lt;string&gt;]*</span> <br />Referenced assemblies. (Short form: <span class="codeInline">/r</span>)<br /><br /><span class="codeInline">[/mp:&lt;string&gt;]*</span> <br />Model programs given in the form <span class="codeInline">M</span> or <span class="codeInline">M[F1,...,Fn]</span> where <span class="codeInline">M</span> is a model program name (namespace) and each <span class="codeInline">Fi</span> is a feature in <span class="codeInline">M</span>.  Multiple model programs are composed into a product.  No factory method is needed if this option is used.<br /><br /><span class="codeInline">[/file:&lt;string&gt;]*</span><br />File where test suite is saved. The console is used if no file is provided. (Short form: <span class="codeInline">/f</span>)<br /><br /><span class="codeInline">[/append[+|-]]*</span><br />If false the file is overwritten, otherwise the generated test suite is appended at the end of the file.  Default value: ``<span class="codeInline">-</span>&#39;&#39; (Short form:<br /><span class="codeInline">/a</span>)<br /><br /><span class="codeInline">[/fsm:&lt;string&gt;]*</span><br />File name of a file containing the term representation <span class="codeInline">fsm.ToTerm()</span> of an <span class="codeInline">fsm</span> (object of type FSM). Multiple fsms are composed into a product.<br /><br /><span class="codeInline">&lt;model&gt;*</span><br />Fully qualified names of factory methods returning an object that is an instance of <span class="codeInline">ModelProgram</span>.  Multiple models are composed into a product.  No factory method arguments are needed if the <span class="codeInline">/mp:</span> option is used instead.<br /><br /><span class="codeInline">@&lt;file&gt;</span><br />Read response file for more options.<br /></div><div class="ClearBoth"></div>

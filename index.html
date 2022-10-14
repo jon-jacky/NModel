@@ -1,26 +1,51 @@
-<div class="wikidoc"><b>NModel</b> is a model-based testing and analysis framework for model programs written in C#.   It is explained and used in the book <a href="http://staff.washington.edu/jon/modeling-book/">Model-based Software Testing and Analysis with C#</a>.<br /><br />In constrast with conventional unit testing, where a test engineer must code each test case, <i>model-based testing</i> is recommended where so many test cases are needed that it would be infeasible to code them all by hand.  It is especially indicated for testing behaviors with data- and history-dependence and nondeterminism, where many different variations (data values, interleavings etc.)  should be tested for each scenario (or use case).  Model-based testing has been applied to communication protocols, web applications, embedded control systems, and graphical user interfaces.<br /><br />The NModel release includes:
-<ul><li>A <a href="https://nmodel.codeplex.com/wikipage?title=NModel%20Library&referringTitle=Home">library</a> of attributes and data types  for writing <a href="https://nmodel.codeplex.com/wikipage?title=Model%20Programs&referringTitle=Home">model programs</a> in C#</li>
-<li>A visualization and analysis tool <span class="codeInline">mpv</span> (<a href="https://nmodel.codeplex.com/wikipage?title=Model%20Program%20Viewer&referringTitle=Home">Model Program Viewer</a>)</li>
-<li>An alternative visualization tool <span class="codeInline">mp2dot</span> (<a href="https://nmodel.codeplex.com/wikipage?title=Model%20Program%20to%20Dot&referringTitle=Home">Model Program to Dot</a>)</li>
-<li>A test generation tool <span class="codeInline">otg</span> (<a href="https://nmodel.codeplex.com/wikipage?title=Offline%20Test%20Generator&referringTitle=Home">Offline Test Generator</a>)</li>
-<li>A test runner tool <span class="codeInline">ct</span> (<a href="https://nmodel.codeplex.com/wikipage?title=Conformance%20Tester&referringTitle=Home">Conformance Tester</a>), for both offline and on-the-fly testing</li>
-<li>A collection of <a href="https://nmodel.codeplex.com/wikipage?title=NModel%20Examples&referringTitle=Home">examples</a> that demonstrate how to use NModel.</li></ul>
-The library also exposes the functionality of <span class="codeInline">mpv</span>, <span class="codeInline">otg</span>, <span class="codeInline">ct</span> and more, so you may write your own tools which are more closely adapted to your environment, or which provide other capabilities.<br /><br />To use NModel, you must write your own <a href="https://nmodel.codeplex.com/wikipage?title=Model%20Programs&referringTitle=Home">model program</a> in C# that models your implementation.  Then you can use the <span class="codeInline">mpv</span> tool to visualize and analyze the behavior of your model program, in order to confirm that it behaves as you intend, and to check for design errors.  To execute tests using the test runner <span class="codeInline">ct</span>, you must write a <i>test harness</i> in C# that couples your implementation to the tool.  (The implementation does not have to be written in C# and does not have to use .NET.) You can use the test generator <span class="codeInline">otg</span> to create tests from your model program in advance, or let <span class="codeInline">ct</span> generate the test <i>on-the-fly</i> from your model program as the test run executes.  If you wish, you can write a custom <i>strategy</i> in C# that <span class="codeInline">ct</span> uses to maximize coverage according to criteria you define.    To express <i>scenarios</i>, you can dispense with C# and write simple <i>finite state machines</i> (FSMs), then use <i>composition</i> to achieve <i>scenario control</i> during testing or to check <i>temporal properties</i> during analysis.  You can build up model programs from separate <i>features</i> or use composition to combine model programs in a well-structured way.<br /><br />A good way to get started is to <a href="https://nmodel.codeplex.com/wikipage?title=Installing%20NModel&referringTitle=Home">install NModel</a>, download the reference manual and samples from <a href="http://www.codeplex.com/NModel/Release/ProjectReleases.aspx?ReleaseId=18929">Releases</a>, and try some of the <a href="https://nmodel.codeplex.com/wikipage?title=NModel%20Examples&referringTitle=Home">examples</a>.  <br /><br />NModel requires .NET, but does not require Visual Studio.<br /> <br />NModel pages at Codeplex:
-<ul><li><a href="https://nmodel.codeplex.com/wikipage?title=Installing%20NModel&referringTitle=Home">Installing NModel</a></li>
-<li><a href="https://nmodel.codeplex.com/wikipage?title=NModel%20Examples&referringTitle=Home">NModel Examples</a></li>
-<li><a href="https://nmodel.codeplex.com/wikipage?title=Model%20Programs&referringTitle=Home">Model Programs</a></li>
-<li><a href="https://nmodel.codeplex.com/wikipage?title=Composition&referringTitle=Home">Composition</a></li>
-<li><a href="https://nmodel.codeplex.com/wikipage?title=NModel%20Library&referringTitle=Home">NModel Library</a></li>
-<li><a href="https://nmodel.codeplex.com/wikipage?title=Model%20Program%20Viewer&referringTitle=Home">Model Program Viewer</a> (<span class="codeInline">mpv</span>)</li>
-<li><a href="https://nmodel.codeplex.com/wikipage?title=Model%20Program%20to%20Dot&referringTitle=Home">Model Program to Dot</a> (<span class="codeInline">mp2dot</span>)</li>
-<li><a href="https://nmodel.codeplex.com/wikipage?title=Offline%20Test%20Generator&referringTitle=Home">Offline Test Generator</a> (<span class="codeInline">otg</span>)</li>
-<li><a href="https://nmodel.codeplex.com/wikipage?title=Conformance%20Tester&referringTitle=Home">Conformance Tester</a> (ct)</li>
-<li><a href="https://nmodel.codeplex.com/wikipage?title=Building%20NModel&referringTitle=Home">Building NModel</a></li>
-<li>NModel Reference (45-page PDF document, download from <a href="http://www.codeplex.com/NModel/Release/ProjectReleases.aspx?ReleaseId=18929">Releases</a>)</li></ul>
+<div class="wikidoc"><b>NModel</b> is a model-based testing and analysis framework for model programs written in C#.   It is explained and used in the book <a href="https://jon-jacky.github.io/modeling-book/">Model-based Software Testing and Analysis with C#</a>.<br /><br />In constrast with conventional unit testing, where a test engineer must code each test case, <i>model-based testing</i> is recommended where so many test cases are needed that it would be infeasible to code them all by hand.  It is especially indicated for testing behaviors with data- and history-dependence and nondeterminism, where many different variations (data values, interleavings etc.)  should be tested for each scenario (or use case).  Model-based testing has been applied to communication protocols, web applications, embedded control systems, and graphical user interfaces.<br /><br />
+
+The NModel release includes:
+
+<ul><li>A <a href="library.html">library</a> of attributes and data types  for writing <a href="model-program.html">model programs</a> in C#</li>
+<li>A visualization and analysis tool <span class="codeInline">mpv</span> (<a href="mpv.html">Model Program Viewer</a>)</li>
+<li>An alternative visualization tool <span class="codeInline">mp2dot</span> (<a href="mp2dot.html">Model Program to Dot</a>)</li>
+<li>A test generation tool <span class="codeInline">otg</span> (<a href="otg.html">Offline Test Generator</a>)</li>
+<li>A test runner tool <span class="codeInline">ct</span> (<a href="ct.html">Conformance Tester</a>), for both offline and on-the-fly testing</li>
+<li>A collection of <a href="examples.html">examples</a> that demonstrate how to use NModel.</li></ul>
+
+The library also exposes the functionality of <span class="codeInline">mpv</span>, <span class="codeInline">otg</span>, <span class="codeInline">ct</span> and more, so you may write your own tools which are more closely adapted to your environment, or which provide other capabilities.<br /><br />To use NModel, you must write your own <a href="model-program.html">model program</a> in C# that models your implementation.  Then you can use the <span class="codeInline">mpv</span> tool to visualize and analyze the behavior of your model program, in order to confirm that it behaves as you intend, and to check for design errors.  To execute tests using the test runner <span class="codeInline">ct</span>, you must write a <i>test harness</i> in C# that couples your implementation to the tool.  (The implementation does not have to be written in C# and does not have to use .NET.) You can use the test generator <span class="codeInline">otg</span> to create tests from your model program in advance, or let <span class="codeInline">ct</span> generate the test <i>on-the-fly</i> from your model program as the test run executes.  If you wish, you can write a custom <i>strategy</i> in C# that <span class="codeInline">ct</span> uses to maximize coverage according to criteria you define.    To express <i>scenarios</i>, you can dispense with C# and write simple <i>finite state machines</i> (FSMs), then use <i>composition</i> to achieve <i>scenario control</i> during testing or to check <i>temporal properties</i> during analysis.  You can build up model programs from separate <i>features</i> or use composition to combine model programs in a well-structured way.<br /><br />A good way to get started is to <a href="install.html">install NModel</a>, download the reference manual and samples from Releases, and try some of the <a href="examples.html">examples</a>.  <br /><br />
+
+NModel requires .NET, but does not require Visual Studio.<br /> <br />
+
+NModel pages at this site:
+
+<ul><li><a href="README.txt">About</a> this page</li></ul>
+
+<ul><li><a href="install.html">Installing NModel</a></li>
+<li><a href="examples.html">NModel Examples</a></li>
+<li><a href="model-program.html">Model Programs</a></li>
+<li><a href="composition.html">Composition</a></li>
+<li><a href="library.html">NModel Library</a></li>
+<li><a href="mpv.html">Model Program Viewer</a> (<span class="codeInline">mpv</span>)</li>
+<li><a href="mp2dot.html">Model Program to Dot</a> (<span class="codeInline">mp2dot</span>)</li>
+<li><a href="otg.html">Offline Test Generator</a> (<span class="codeInline">otg</span>)</li>
+<li><a href="ct.html">Conformance Tester</a> (ct)</li>
+<li><a href="build.html">Building NModel</a></li>
+</ul>
+
+<ul>
+<li><a href="nmodel-reference.pdf">NModel Reference</a>
+(45-page PDF, 185k)</li></ul>
+
 Also:
-<ul><li><a href="https://nmodel.codeplex.com/wikipage?title=Publications&referringTitle=Home">Publications</a></li>
-<li><a href="https://nmodel.codeplex.com/wikipage?title=Presentations&referringTitle=Home">Presentations</a></li></ul>
+
+<ul><li><a href="publications.html">Publications</a></li>
+<li><a href="presentations.html">Presentations</a></li></ul>
+
 NModel pages elsewhere:
-<ul><li><a href="http://staff.washington.edu/jon/modeling-book/">Model-based Software Testing and Analysis with C#</a> (book that uses and explains NModel)</li></ul>
+
+<ul><li><a href="https://github.com/juhan/NModel">NModel source code</a> 
+including <a href="https://github.com/juhan/NModel/tree/master/samples">
+examples</a></li></ul>
+
+<ul><li><a href="https://jon-jacky.github.io/modeling-book/">Model-based Software Testing and Analysis with C#</a> (book that uses and explains NModel)</li></ul>
+
 Other projects:
-<ul><li><a href="http://staff.washington.edu/jon/pymodel/www/">PyModel</a>: model-based testing in Python</li></ul></div><div class="ClearBoth"></div>
+
+<ul><li><a href="https://github.com/jon-jacky/pymodel/">PyModel</a>: model-based testing in Python</li></ul></div><div class="ClearBoth"></div>

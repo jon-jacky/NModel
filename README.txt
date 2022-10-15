@@ -10,10 +10,15 @@ were encouraged to migrate their sites to Github.  I did not migrate
 the site at that time, but I did get a zip file of the site contents.
 
 Only now (Oct 2022) am I restoring the NModel web pages only, to this
-repository.  These pages, which I wrote, document NModel.  These pages
-were extracted from the zip archive; they are strangely formatted.
-I had to rename the files (back to their original names) and fix some
-links to get them to work again.
+repository.  These pages, which I wrote, document NModel.  
+
+These web pages were extracted from the zip archive; they are
+strangely formatted.  They had been renamed and all the links mangled.
+I renamed the files back to their original names, and fixed the links
+in index.html and presentations.html only.  All the web pages in this
+repository are reachable through these two web pages.  There are also
+many cross reference links in the other web pages.  Those links are
+all broken, and will not be fixed.
 
 I do not include the NModel source code files here -- I did not
 write most of them.  The NModel source code files are in another
